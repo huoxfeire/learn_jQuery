@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>样式快捷操作</title>
+	
+	<link rel="stylesheet" href="04.css">
+	<style type="text/css">
+		
+		div {
+			border: 1px solid red;
+		}
+
+		#box {
+			background-color: pink; 
+		}
+
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// 获取和设置样式
+		// 由于传入的是字符串，按照css的样式（带“-”）写法，还是驼峰命名法，都能获取到样式
+		// 获取样式
+			// $().css(样式)
+			// 无论是内联外链还是行内样式，都能通过css获取到
+
+		// 设置样式
+			// $().css(样式, 值)
+			// 参数可以是一个json对象
+
+		function f1() {
+			// (1)获取样式
+			console.log($('div').css('width'));//获取行内样式
+
+			// 获取属性 驼峰/连词符
+			console.log($('div').css('background-color'));//获取内联样式
+			console.log($('div').css('color'));//获取外联样式
+
+			// 可以获取复合属性  1px solid rgb(255, 0, 0)
+			// 但是建议还是分开获取 
+			console.log($('div').css('borderStyle'))
+		}				
+
+		function f2() {
+			// (2)设置css样式 设置的是行内样式
+			$('div').css('color', 'tomato');
+			// $('div').css('color', 'tomato');
+		}
+
+		function  f3() {
+			// 批量设置
+			$('div').css({
+				fontSize:'20px',
+				background:'orange'
+			});
+		}
+
+	</script>
+</head>
+<body>
+
+	<div id="box" style="width:200px; height:200px">
+		飞流直下三千尺,疑是银河落九天
+	</div>
+
+	<button onclick="f1()">获取</button>
+	<button onclick="f2()">设置</button>
+	<button onclick="f3()">设置多个</button>
+	
+</body>
+</html>

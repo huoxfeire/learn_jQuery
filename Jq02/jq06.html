@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的事件绑定</title>
+	<style type="text/css">
+		div {
+			width: 300px;
+			height: 300px;
+		}
+
+	</style>
+
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// 事件加载函数绑定
+			// 1.$(document).ready(function(){});
+			// 2.$().ready(function(){});
+			// 3.$(function(){});
+
+		// 事件对象绑定
+			// $().EventType(func)
+			// 绑定匿名函数
+			// 绑定指定函数
+			// 可以给一个事件绑定多个处理函数
+			// this的指向还是触发事件的元素
+
+		
+		$(function () {
+				
+			// 简单事件绑定: $().事件类型(处理函数)
+			// jQuery中的方法内部都有一个遍历机制
+			// (1)绑定匿名函数
+			$('div').mouseover(function () {
+				// this代表的是dom对象
+
+				// this会依次代表由选择器选中的dom对象
+				$(this).css('backgroundColor', 'pink');
+			});
+
+			// (2)绑定指定函数
+			$('div').mouseout(outAction);
+			function outAction() {
+				$(this).css('backgroundColor', 'white');
+				console.log(this);
+			}
+
+			// (3)可以给一个事件绑定多个处理函数
+			$('div').mouseover(function () {
+				$(this).css('color', 'red');
+			});
+
+			// box = document.getElementById("box");
+			// box.onmouseover = function(){
+			// 	this.style.color = "red";
+			// }
+		});
+		
+		function f1() {
+			
+			// 让div触发光标移入的事件, 该事件绑定的所有处理函数都会被触发
+			$('div').mouseover();
+
+			// dom的onmouseover也能通过调用函数触发
+			// box.onmouseover()
+
+		}
+
+	</script>
+
+</head>
+<body>
+
+	<div id="box">
+		听说白雪公主在逃跑
+	</div>
+
+	<button onclick="f1()">手动触发事件</button>
+	<br>
+	<div>
+		丑小鸭也会变成白天鹅
+	</div>
+	
+</body>
+</html>

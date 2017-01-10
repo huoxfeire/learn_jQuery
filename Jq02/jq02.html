@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性快捷操作</title>
+	<style type="text/css">
+		.apple {
+			color: orange;
+		}
+
+		.pear {
+			color: red;
+		}
+
+		.peach {
+			background-color: cyan;
+		}
+
+		#user {
+			background: pink;
+		}
+
+	</style>
+
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		
+		// 获取属性
+		// 1.$().attr(属性名)
+		// 能够获取w3c规定的标准属性, 也能获取自定义的属性
+
+		// 2.$().prop(属性名)	获取属性主要用这个
+		// $().prop(属性名):该方法只能获取w3c规定的属性
+
+		// 设置属性
+		// 如果属性已经存在,直接做修改, 如果没有,直接添加
+
+		// 1.$().attr(属性名，value)
+		// 参数可以是json对象，也可以传入属性和func
+		// 可以设置自定义属性  也可以设置w3c标准属性 
+
+		// 2.$().prop(属性名)	
+		// 不能设置自定义的属性
+
+		// 移除属性
+		// 1.$().removeAttr(属性名)
+		// 移除的是整个属性，不建议随意移除属性
+
+		// 2.$().removeProp(属性名)
+		// 会将属性全部移除，且不能再次设置，而且有时没有效果
+
+
+		function f1() {
+			// (1)属性的获取:返回一个属性字符串
+			// $().attr(属性名); 能够获取w3c规定的标准属性, 也能获取自定义的属性
+			console.log($('input').attr('address'));
+			console.log($('input').attr('type'));
+
+			//$().prop(属性名):该方法只能获取w3c规定的属性
+			console.log($('input').prop('type'));
+			console.log($('input').prop('address'));
+		}
+
+		function f2() {
+			// (2)属性的设置:如果属性已经存在,直接做修改, 如果没有,直接添加
+			/*
+			$().attr('属性名', '属性值') :
+			可以设置自定义属性  也可以设置w3c标准属性 
+			*/ 
+			// $('input').attr('address', 'shanghai');	
+			// $('input').attr('class', 'pear');
+			// $('input').attr('id', 'user');
+
+			// prop():只能设置标准属性
+			// 不能设置自定义的属性
+			// $('input').prop('address', 'shanghai');	
+			$('input').prop('class', 'pear');
+			// $('input').prop('id', 'user');
+
+			// $('input').prop('value', 'tom');
+
+			// 建议不要修改类似于type这样的属性
+			// $('input').prop('type', 'range');
+		}
+
+		function f3() {
+			// removeAttr();
+			// 移除的是整个属性
+			$('input').removeAttr('class');
+			$('input').removeAttr('address');
+
+			// 任何属性都可以移除 但是不建议
+			// $('input').removeAttr('type');
+
+			// removeProp();
+
+			// 会将属性直接全部移除,并且不能再次添加
+			// checked disabled selected
+			// $('input').removeProp('class');
+			// $('input').removeProp('address');
+		}
+
+		function f4() {
+			// 通过json对象可以批量修改属性
+			var jsonObj = {
+				class:'pear',
+				value:'jurry',
+				address:'shanghai'
+			};
+
+			$('input').attr(jsonObj);
+			// 不能批量获取
+			// $('input').attr(["class", "value", "address"]);
+		}
+
+		function f5() {
+
+	
+			var num = 0;
+			$('input').attr('value', function () {
+				num ++;
+
+				console.log(111);
+				return num;
+			});
+		}
+
+
+	</script>
+
+</head>
+<body>
+
+	<input type="text" class="apple peach" value="tom" address="beijing">
+	<br>
+	<button onclick="f1()">获取</button>
+	<br>
+	<button onclick="f2()">设置</button>
+	<br>
+	<button onclick="f3()">删除</button>
+	<br>
+	<button onclick="f4()">批量设置</button>
+	<br>
+	<button onclick="f5()">函数返回值设置</button>
+	
+</body>
+</html>

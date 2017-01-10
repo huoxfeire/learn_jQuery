@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		div {
+			width: 300px;
+			height: 300px;
+			background-color: pink;
+		}
+
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+
+		// 用事件类型进行事件对象绑定有缺陷，相当于DOM的一级事件绑定，解绑需要置null
+		// jquery的事件绑定方法
+
+			// $().bind('EventType'， func)
+
+			// 也可以给多个事件对象绑定一个方法
+				// $().bind('EventType1 EventType2', func)
+
+			// 还可以给传入一个json对象绑定
+				// $().bind(json)
+
+		// jQuery事件对象
+		// jQuery对各个浏览器的事件对象进行了封装, 统一将绑定的函数的第一个参数作为事件对象传递
+		// 触发事件的对象
+			// e.relatedTarget	移入移出的鼠标事件:表示从哪个元素进入目标元素
+
+			// e.pageX/pageY 类比e.clientX/clientY
+
+		// 解除事件绑定
+		// $().unbind("EventType", func)
+			// 取消所有事件不要带参数
+			// 带一个参数表示解除事件对象的参数
+			// 带两个参数表示解除带指定方法的事件对象
+
+		$(function () {
+			
+			// (1)$().bind(事件类型, 处理函数);
+			$('div').bind('mouseover', function () {
+				// console.log(this);
+				$(this).css('color', 'red');
+			});
+
+			$('div').bind('mouseout', function () {
+				$(this).css('color', 'black');
+			});
+
+			// (2)$().bind("类型1 类型2 类型3", 处理函数); 给多个事件类型绑定同一个处理函数
+			$('div').bind('mouseover mouseout', function () {
+				console.log('触发');
+			});
+
+			// (3)$().bind(json对象)
+			$('div').bind({
+				click:function () {
+					console.log('click');
+				},
+				mousemove:function () {
+					console.log('mousemove');
+				}
+			});
+
+			// 事件绑定
+			// $('div').bind('click', function (e) {
+				
+			// 事件对象:jQuery对各个浏览器的事件对象进行了封装, 统一将绑定的函数的第一个参数作为事件对象传递
+			// console.log(e.target);
+		 	// console.log(e.currentTarget);
+
+			// 移入移出的鼠标事件:表示从哪个元素进入目标元素
+			// console.log(e.relatedTarget);
+
+			// 类比clientX/Y
+			// 	console.log(e.pageX);
+			// 	console.log(e.pageY);
+			// })
+		})
+
+		function f1() {
+			// jQeury中取消事件绑定的方法:unbind();
+			// (1)取消了div所有的事件绑定
+			// $('div').unbind();
+
+			// (2)指定事件类型取消绑定,  取消该事件绑定的所有函数
+			// $('div').unbind('mouseover');
+			// $('div').unbind('click');
+
+			// (3)指定事件类型和绑定函数
+			$('div').unbind('click', clickAction1);
+
+
+	</script>
+</head>
+<body>
+	<div>
+		轻轻的我走了
+	</div>
+
+	
+</body>
+</html>

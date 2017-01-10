@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>value的快捷操作</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">	
+
+		// $().val()
+		// 一般用于表单元素
+		// 可以获取表单的value值
+
+		// 也可以用来设置表单的value值
+		// 文本框
+		// $().val("content")
+
+		// 单选框,表示把value为content的表单元素选中,也能为选中的标签设置值
+		// $().val(['content'])
+
+		// 复选框，表示把value为content的表单元素选中,也能为选中的标签设置值
+		// $().val(['content1', 'content2', 'content3'])
+
+		
+
+		function f1(){
+			// val(); 快速访问value属性
+			// console.log($('input:first').val());
+			
+			// 获取选中的表单元素的属性值
+			console.log($('input:checked').val());
+		}
+
+		function f2() {
+			// (2)通过val设置value属性值
+			// $('input:first').val('aaa');
+
+			// 复选框
+			// $().val([value])
+			// $('.hobby').val(['eat', 'drink']);
+
+
+			// 单选框
+			$('.sex').val(['secret']);
+
+		}
+
+		function f3() {
+			console.log($('option:selected').val());
+		}
+
+		function f4() {
+			// $('option:first').val('F');
+
+			// 下拉列表中快速设置选中  使用select
+			// 也可以实现多选
+			$('select').val(['E', 'A']);
+		}
+
+
+	</script>
+</head>
+<body>
+	
+	<input type="text" name="username">
+	<br>
+	爱好
+	<!-- <input type="checkbox" name="hby" class="hobby" value="eat">吃
+	<input type="checkbox" name="hby" class="hobby" value="drink">喝
+	<input type="checkbox" name="hby" class="hobby" value="play">玩 -->
+
+	<br>
+	<br>
+	<input type="radio" name="sex" class="sex" value="boy">男
+	<input type="radio" name="sex" class="sex" value="girl" checked>女
+	<input type="radio" name="sex" class="sex" value="secret">保密
+	
+	<!-- multiple表示多选下拉列表 -->
+	<select name="city" multiple>
+		<option value="A">北</option>
+		<option value="B">上</option>
+		<option value="C">广</option>
+		<option value="D">深</option>
+		<option value="E">杭</option>
+	</select>
+
+	<button onclick="f3()">获取2</button>
+	<button onclick="f4()">设置2</button>
+	
+</body>
+</html>

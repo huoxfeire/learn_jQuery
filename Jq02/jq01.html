@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的内置函数</title>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+	<div>
+		111
+		<p>简单的段落</p>	
+	</div>
+	
+	<button onclick="f1();">显示</button>
+</body>
+<script type="text/javascript">
+	var isShown = true;
+
+	// 1.内置遍历方法
+		// $.map(arr, func(item, index))
+		// map方法就是遍历并处理数组中的元素，返回一个数组
+
+		// $.each(arr, func(index, value))
+		// each方法就是遍历数组，相当于一个for循环
+
+		// 毕竟是jquery的方法，也可以使用$().each/map方法，参数传入一个func
+
+	// 2.jQuery节点对象方法
+		// 显示和隐藏标签内容
+		// $().hide()
+		// $().show()
+
+		// 获取和设置标签中的文本节点
+		// $().html()
+		// $().text()
+
+		// text()获取的只能是字符串，会过滤掉里面的标签
+		// html()获取的包含标签和字符串
+
+		// html()和text()设置会将内容全部替换，相当于DOM节点的innerHTML方法
+		// text()设置会将字符串中的尖括号转换为字符实体，也就是字符串里的标签不起作用了
+		// html()设置会将尖括号里的内容当成标签
+
+
+		console.log($("div").html());	// <p>简单的段落</p>	
+		console.log($("div").text());	// 简单的段落
+
+		// $("div").html("那是一首简单的小情歌");		
+		// $("div").text("那是一首简单的小情歌");	
+		// $("div").html("<h1>那是一首简单的小情歌</h1>");
+		// $("div").text("<h1>那是一首简单的小情歌</h1>");	
+		
+
+
+	function f1(){
+		if(isShown){
+			$("p").hide();
+			isShown = false;
+			$("button").text("隐藏");
+		}else{
+			$("p").show();
+			isShown = true;
+			$("button").text("显示");
+		}
+		
+	}
+</script>
+</html>
