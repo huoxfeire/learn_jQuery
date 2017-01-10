@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单相关选择器</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	
+	<script type="text/javascript">
+		
+		function f1() {
+			
+			// (1)复选框选中选择器 checked;
+			console.log($('.hobby:checked')[0].value);
+
+			// (2)单选框选中选择器 checked;
+			console.log($('.sex:checked')[0].value);
+
+			// (3)下拉列表选中选择器 selected
+			console.log($('option:selected')[0].value);
+
+		}
+
+	</script>
+
+</head>
+<body>
+
+	<!-- 复选框 -->
+	爱好:
+	<input type="checkbox" name="hby" class="hobby" value="1">学习
+	<input type="checkbox" name="hby" class="hobby" value="2">敲代码
+	<input type="checkbox" name="hby" class="hobby" value="3">敲代码
+	<input type="checkbox" name="hby" class="hobby" value="4">敲代码
+
+	<br>
+
+	性别
+	<input type="radio" name="sex" class="sex" value="man">男
+	<input type="radio" name="sex" class="sex" value="woman">女
+	<input type="radio" name="sex" class="sex" value="secret">保密
+
+	<br>
+
+	<select>
+		<option value="A">京</option>
+		<option value="B">津</option>
+		<option value="C">沪</option>
+	</select>
+
+	<button onclick="f1()">触发</button>
+
+
+	
+</body>
+</html>

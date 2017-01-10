@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery层次选择器</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// 层次选择器就是两个选择器间存在一定的关系，比如父子，兄弟
+		
+		// 父子关系
+		// $(tag1 tag2)	tag1下的子元素 tag2
+		// $(tag1>tag2) 	tag1下的直接子元素 tag2
+		
+		// 兄弟关系
+		// $('div~span')	向下查找所有与div有兄弟关系的span标签
+		// $('div+span')	向下查找与div紧邻的span标签
+
+		// $(selector1).prev(selector2) 	向上查找紧邻的兄弟标签
+		// $(selector1).siblings(selector2) 	根据selector1查找与其是兄弟关系的selector2
+		
+		function f1() {
+			// 群组选择器
+			// $('li,body,html');
+
+			// 层次选择器
+			// (1)根据结构选择: li嵌套的a
+			$('li a').css('color', 'red');
+			// console.log($('li a'));
+
+			// (2)div下所有的span子节点
+			$('div span').css('color', 'pink');
+
+			// (3)div>span: div下直接子节点
+			$('div>span').css('color', 'yellow');
+
+			// (4)div~span :向下查找所有与div有兄弟关系的span标签
+			$('div~span').css('backgroundColor', 'tomato');
+
+			// (5)div+span: 向下查找与div紧邻的span标签
+			$('div+span').css('color', 'green');
+
+			// (6)$(selector1).prev(selector2) 向上查找紧邻的兄弟标签
+			$('div').prev('span').css('color', 'gray');
+
+			// (7)$(selector1).siblings(selector2); 根据selector1查找与其是兄弟关系的selector2
+			$('#movie').siblings('a').css('backgroundColor','purple');
+
+		}
+
+
+
+	</script>
+
+</head>
+<body>
+
+	<ul>
+		<li><a href="#">首页</a></li>
+		<li>新闻</li>
+		<li id="movie">视频</li>
+		<li>更多</li>
+		<a href="#">email me</a>
+	</ul>
+	<!-- <div></div> -->
+	<span>山不在高</span>
+	<div>
+		<span>有仙则名</span>
+		<span>水不在深</span>
+		<span>有龙则灵</span>
+		<a href="#"><span>陋室铭</span></a>
+	</div>
+	<span>唐朝</span>
+	<span>往来无白丁</span>
+	<p>斯是陋室</p>
+	<span>惟吾德馨</span>
+	<span>刘禹锡</span>
+	<p>苔痕上阶绿</p>
+	<div>草色入帘青</div>
+	<span>惟吾德馨</span>
+
+
+
+
+	<br>
+	<button onclick="f1()">触发</button>	
+	
+</body>
+</html>

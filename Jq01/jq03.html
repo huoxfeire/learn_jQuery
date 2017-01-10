@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		function f1() {
+
+			// 属性选择器: 	
+			// jquery的属性选择器和css3选择器类似，所以很好学
+			// 1.按照属性名匹配 $("[attr]")
+			// 2.按照属性值匹配 $("[attr]=value")
+			// 3.正则匹配属性值 $("[attr]^=value") 	开头
+						    // $("[attr]$=value") 	结尾
+						    // $("[attr]!=value") 	取反
+						    // $("[attr]*=value") 	包含
+			// 4.并且关系
+				// $('[attr=value][attr1=value1][attr2=value2]');
+			
+
+			// (1)$('[attr]'): 元素必须包含给定的属性
+			$('[size]').css('color', 'red');
+
+			// (2)$('[attr = value]'); 元素必须包含该属性, 并且等于给定的属性值
+			$('[name=password]').css('backgroundColor', 'pink');
+
+			// (3)$('[attr^=value]'); 元素必须包含该属性, 并且属性值以给定的value开头即可
+			$('[name^=p]').css('color', 'blue');
+
+			// (4)$('[attr$=value]')  attr以value结尾
+			$('[name$=n]').css('backgroundColor', 'yellow');
+
+			// (5)$('[attr!=value]')  只要属性值不等于给的value(包含不存在该属性也能被选中)
+			// $('[name!=password]').css('border', '1px solid red');
+
+			// (6)$('[attr*=value]'); 只要属性值中包含了vlaue就会被选中
+			$('[name*=me]').css('color', 'orange');
+
+			// (7) $('[attr=value][attr1=value1][attr2=value2]');  并且关系的属性选择器
+
+
+		}
+
+
+	</script>
+
+</head>
+<body>
+	
+	<input type="text" size="20" name="username" value="tom"><br>
+	<input type="text" size="20" name="password" value="dog"><br>
+	<input type="text" size address="username2" value="jerry"><br>
+	<input type="text" size="20" name="pear" value="桃子"><br>
+	<input type="text" size="20" name="watermelon" value="西瓜"><br>
+	<input type="text" size="20" name="p" value="苹果"><br>
+	<p>快下雪了</p>
+
+
+	<br>
+	<button onclick="f1()">触发</button>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容包含选择器</title>
+	
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+	
+		function f1() {
+			// 也是过滤选择器
+			// 内容是文本的	
+				// filterWord
+					// tag1:contains(tag2)
+					// empty
+			// 内容是标签的  // tag1:has(tag2)
+			// 内容是父元素的，包含文本节点和标签 // parent
+			// 1. $('selector:contains(contentstr)')
+			$('div:contains(wumai)').css('color', 'red');
+
+			// 2.:empty 什么都不包含  空格也算内容
+			console.log($('div:empty'));
+
+			// 3. tag1:has(tag2)  返回的是div   不管tag1和tag2是否直接的父子关系, 只要存在包含关系就能获取到   返回div
+			$('div:has(span)').css('backgroundColor', 'yellow');
+
+			// 4. :parent  作为父容器的div  包含文本节点
+			$('div:parent').css('border', '1px solid red');
+		}		
+
+
+
+	</script>
+
+</head>
+<body>
+	
+	<div>beijing wumai</div>
+	<div>tianjin wumai</div>
+	<div>shandong <span>wumai</span></div>
+	<span>henan wumai</span>
+	<span>neimeng bushiwumai</span>
+	<div>lijiang <li><span>luoyang</span></li> bushiwu mai</div>
+	<span>guanzhoulan</span>
+		
+	<!-- 查找空节点 -->
+	<div id="eee"> </div>
+	<div><span></span></div>
+
+	<button onclick="f1()">触发</button>
+
+	
+</body>
+</html>

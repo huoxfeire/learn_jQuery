@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		function f1() {
+			// 过滤选择器:
+			// 用法：$('selector: filterWord')
+				// filterWord
+					// first, last, even, odd, 
+					// eq(index), gt(index), lt(index), 组合使用，下标会重定位
+					// not(selector2)	否定选择器
+					// header 			title选择器h1-h6
+					// 可以组合使用
+			// (1)$('selector:first');
+			$('li:first').css('color', 'red');
+			// (2)$('selector:last');
+			$('li:last').css('color', 'red');
+
+			// (3)下标为偶数的元素
+			$('li:even').css('background', 'lightgray');
+
+			// (4)下标为偶数的元素
+			$('li:odd').css('background', 'gray');
+
+			// (5)指定下标选择元素
+			var i = 2;
+			$('li:eq('+ i +')').css('color', 'yellow');
+
+			// (6)指定范围
+			// 大于:great than    gt(index)  大于index下标的元素 不包含index
+			// 小于:less than    lt(index)  小于index下标的元素 不包含index
+			$('li:gt(4)').css('border', 'solid 1px red');
+			$('li:lt(4)').css('border', 'solid 1px red');
+
+			// >2 && < 4
+
+			// (7)复杂用法:  过个过滤条件同时使用   如果是多个筛选条件, 那么当第一个筛选之后,会将帅选结果返回为一个新的jQuery对象进行下一个条件过滤(下标重定位)
+			$('li:gt(2):lt(1)').css('backgroundColor', 'cyan');
+
+
+			// 否定选择器 $('s1:not(s2)');
+			$('li:not(.h)').css('fontSize', '20px');
+
+
+			// (8)$(':header');  查找页面上所有的标题标签  h系列
+			$(':header.h').css('color', 'pink');
+
+
+			// (9)所有选择器都可以组合使用  避免歧义
+			$('li.h').css('color', 'green');
+
+
+
+		}
+
+	</script>
+</head>
+<body>
+
+	<h2>鸳鸯双栖蝶双飞</h2>
+	<h3 class="h">满园春色惹人醉</h3>
+
+	<ul>
+		<li>唐玄奘</li>
+		<li class="h">孙悟空</li>
+		<li>猪八戒</li>
+		<li>沙和尚</li>
+		<li>白龙马</li>
+		<li>白骨精</li>
+		<li>女儿国国王</li>
+	</ul>
+	
+	<button onclick="f1()">触发</button>
+
+</body>
+</html>

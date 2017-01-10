@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的基本选择器</title>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+	
+	<p id="para" class="box">段落1</p>
+	<p>段落2</p>
+
+	<script type="text/javascript">
+
+		// 无论使用哪种选择器，jQuery函数返回的是一个类数组对象，内部包含一个遍历机制
+		// 这意味着jQuery对象和DOM对象不能互调成员
+		console.log(typeof $("p"));		// object
+		console.log(typeof $("#para"));	// object
+		console.log(typeof $(".box"));	// object
+
+		console.log($(".box"));			// [p#para.box, prevObject: r.fn.init[1]]
+
+
+		// 但是，jQuery对象可以和DOM对象互相转换
+		// jquery对象-->dom对象
+		$("p")[1].style.fontSize = "23px";
+
+		// jQuery对象:根据选择符获取到对应的dom节点(元素), 通过merge的方法, 将该对象添加数组
+		// dom对象-->jquery对象
+		var p = document.getElementById("para");
+		$(p).css("width", "300");
+
+
+		// 1.html标签选择器
+		$("p").css("color", "orange");
+		// 2.id选择器
+		$("#para").css("background-color", "lightgrey");
+		// 3.类选择器
+		$(".box").css("fontSize", "20px");
+
+	</script>	
+</body>
+
+</html>
