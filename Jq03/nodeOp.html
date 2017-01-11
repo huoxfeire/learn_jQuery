@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点操作</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+	// 创建节点
+		// 用字符串创建的节点
+		var p1 = $("<p>content</p>");
+		// 用DOM函数创建
+		var p2 = document.createElement('p');
+
+		// 给创建好的节点设置文本内容
+		p1.text("2333333");
+		console.log(p1);
+		
+		$(p2).html("这是一个新的p标签2");
+		console.log(p2);
+
+		
+
+
+	// 节点的追加
+		// 父子节点的追加
+
+		// 兄弟节点的追加
+
+		$(function(){
+		// 父子节点的追加
+			// fatherNode.append(childNode);
+			// childNode.prependTo(fatherNode)
+			
+			// 父节点的最后添加子节点
+			// $("#sanguo").append("<li>诸葛亮</li>");
+			// $("#sanguo").append("<li>诸葛亮</li>", "<li>黄盖</li>");	能添加多个
+
+
+			// 向父节点的最前添加子节点
+			// $("#sanguo").prepend("<li>诸葛亮</li>");
+
+			// 将子节点附加到父节点上的最前
+			// $("<li>诸葛亮</li>").prependTo($("#sanguo"));
+			// $("<li>诸葛亮</li>").prependTo($("#sanguo"), $("shui"));	不起作用
+
+			// 将子节点附加到父节点的最后
+			// $("<li>诸葛亮</li>").appendTo($("#sanguo"));
+
+		// 兄弟节点的追加
+			// 在节点后添加元素
+			// $("#boss").after("<li>诸葛亮</li>");
+			// $("#boss").after("<li>诸葛亮</li>", "<li>黄盖</li>");		//  能添加多个
+
+			// 在节点前添加元素
+			// $("#boss").before("<li>诸葛亮</li>", "<li>黄盖</li>");		//  能添加多个
+
+			// 添加元素到节点后
+			// $("<li>诸葛亮</li>").insertAfter($("#boss"));
+
+			// 添加节点到节点前
+			// $("<li>诸葛亮</li>").insertAfter($("#boss"));			
+
+		// 节点的替换
+			// 旧节点被新节点替换
+			// 替换节点.replaceWith(新节点)
+			// $(".lang").replaceWith("<li>killed</li>");	// 替换了选中的节点
+			// $(".lang").replaceWith("<li>killed</li>", "<li>黄盖</li>")	// 两个新节点替换旧节点，页面多增加了两个个节点
+
+			// 新节点替换所有的旧节点
+			// 新节点.replaceAll(替换节点)
+			// $("<li>killed</li>").replaceAll($(".lang"));	
+			// $("<li>killed</li>").replaceAll($("#shui li"));
+
+		});	
+
+
+	</script>
+</head>
+<body>
+
+	<ul id="sanguo">
+		<li id="boss">刘备</li>
+		<li>关羽</li>
+		<li>张飞</li>
+	</ul>
+
+	<ul id="shui">
+		<li>武松</li>
+		<li class="lang">潘金莲</li>
+		<li class="lang">西门</li>
+	</ul>
+
+
+</body>
+</html>

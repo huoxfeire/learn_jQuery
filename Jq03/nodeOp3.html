@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点查找</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// 查找父元素
+			// $(son).parent(father)
+			// 传入参数是father的话，只有直接父元素是father的元素能被选中
+			// 没有传入参数的话，选中son的直接父元素
+			$("span").parent().css("fontSize", "20px");
+			$("div").parent("div").css("color", "red");
+
+			// $(son).parents(father)
+			// 传入参数是father的话，选中son祖先结构中所有是father的元素
+			// 没有传入参数的话，选中son的所有父元素（包含祖先）
+			
+			// $("span").parents().css("border", "1px solid red");
+			$("span").parents("p").css("backgroundColor", "lightgray");
+
+			// 从直接父元素开始，查找到指定的father，不包含指定的father
+			// $(son).parentsUntil(father)
+
+		// 查找子元素
+			// 查找father中的所有子元素son
+			// $(father).find(son)
+
+			// 查找father中的所有的直接子元素son
+			// $(father).children(son)
+
+		// 查找兄弟元素
+			// 查找紧邻的下一个标签
+			// $().next()
+
+			// 查找紧邻的上一个标签
+			// $().prev()
+
+			// 查找其他的兄弟关系标签  不包含自身  可以指定类型
+			// $().siblings()
+
+		$(function(){
+		// 查找父元素
+			// $(son).parent(father)
+			// 传入参数是father的话，只有直接父元素是father的元素能被选中
+			$("div").parent("div").css("color", "red");
+
+			// 没有传入参数的话，选中son的直接父元素
+			$("span").parent().css("fontSize", "20px");
+			
+
+			// $(son).parents(father)
+			// 传入参数是father的话，选中son祖先结构中所有是father的元素
+			$("span").parents("p").css("backgroundColor", "lightgray");
+
+			// 没有传入参数的话，选中son的所有父元素（包含祖先）
+			// $("span").parents().css("border", "1px solid red");
+			
+			
+			// 从直接父元素开始，查找到指定的father，不包含指定的father
+			// $(son).parentsUntil(father)
+			// $("span").parentsUntil("div").css("backgroundColor", "grey");
+
+		// 查找子元素
+			// 查找father中的所有子元素son
+			// $(father).find(son)
+			$("div").find("p").css("color", "blue");
+
+			// 查找father中的所有的直接子元素son
+			// $(father).children(son)
+			$("div").children("span").css("float", "right");
+
+		// 查找兄弟元素
+			// 查找紧邻的下一个标签
+			// $().next()
+
+			// 查找紧邻的上一个标签
+			// $().prev()
+
+			// 查找其他的兄弟关系标签  不包含自身  可以指定类型
+			// $().siblings()
+			// $("ul").siblings('div').css("backgroundColor", "#f1f1f1");
+			$("ul").siblings('div:gt(0)').css("backgroundColor", "#f1f1f1");
+		});
+		
+	</script>
+</head>
+<body>
+	<div id="box1">
+		box1
+		<div>
+			div
+			<span>div下的span</span>
+		</div>
+	</div>
+	<div id="box2">
+		box2
+		<p>
+			p
+			<span>p下的span</span>
+		</p>
+		<div>
+			<p>div的非直接子节点p</p>
+		</div>
+	</div>
+	<ul>
+		<li>siblings测试</li>
+	</ul>
+</body>
+</html>

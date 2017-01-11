@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点删除和克隆</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 清空节点的内容
+			// $("#hlm").empty();
+			// $("#hlm").html("<li>红楼梦</li>");	// 节点还在
+
+			// 移除节点 将选中的节点移除
+			// $("#hlm").remove();
+			// $("#hlm").html("<li>红楼梦</li>");	//没有效果
+
+			// 克隆节点
+			// 将给定的元素复制一份,并且返回, 布尔值决定是否克隆绑定的事件 true表示事件也复制
+			// $().clone(boolean)	不传参数默认是false
+
+			$("#hlm").click(clickAct);
+
+			// $("body").append($('#hlm').clone(true));
+			$("body").append($('#hlm').clone(false));
+
+			
+
+		});
+
+		function clickAct(){
+			alert('click');
+		}
+	</script>
+</head>
+<body>
+	<ul id="hlm">
+		<li>贾宝玉</li>
+		<li>林黛玉</li>
+		<li>薛宝钗</li>
+	</ul>
+</body>
+</html>
