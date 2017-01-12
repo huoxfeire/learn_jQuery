@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点包裹</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// 包裹函数
+		$(function(){
+			// $(被包裹).wrap(外层)
+			// $("p").wrap("div");	不能用
+
+			// wrap的参数必须是元素节点
+			// $("p").wrap("<div></div>");
+
+			// 多层包裹
+			// $("p").wrap("<div><strong></strong></div>");
+
+			// 外层中有文本
+			// $("p").wrap("<div>content</div>");
+
+			// 使用已有节点进行包裹	不会对原来的对象有影响，不过id也会被复制
+			// $("p").wrap($("#box"));
+
+			// 使用函数进行包裹
+			// $("p").wrap(function(){
+			// 	var newDiv = $('<div></div>');
+
+			// 	// 设置节点
+			// 	newDiv.css({
+			// 		width:'200px',
+			// 		height:'200px',
+			// 		backgroundColor:'lightgreen'
+			// 	});
+			// 	return newDiv;
+			// });
+
+
+			// $().wrapAll() 	// 将选择器选中的所有元素包裹在一起, 会打破之前存在的一些包含关系
+			// $('p').wrapAll('<div></div>');
+
+			// $().wrapInner(content)  // 将选择器选中元素的内容进行包裹
+			// $("p").wrapInner('<div class="extra-wrapper"></div>');
+			// $("p").wrapInner();
+
+		});
+
+		function f1(){
+			// $().unwrap 	// 去除包裹, 一次去除一个, 顺序从内到外
+			$("#p1").unwrap();
+		}
+
+
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+	<p>p1</p>
+	<p>p2</p>
+	<div>
+		<i>
+			<p id="p1">p1</p>
+		</i>
+	</div>
+	<button onclick="f1()">解包裹</button>
+</body>
+</html>

@@ -6,38 +6,33 @@
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript">
 		// 查找父元素
-			// $(son).parent(father)
-			// 传入参数是father的话，只有直接父元素是father的元素能被选中
-			// 没有传入参数的话，选中son的直接父元素
-			$("span").parent().css("fontSize", "20px");
-			$("div").parent("div").css("color", "red");
+		// 	$(son).parent(father)
+		// 	传入参数是father的话，只有直接父元素是father的元素能被选中
+		// 	没有传入参数的话，选中son的直接父元素
 
-			// $(son).parents(father)
-			// 传入参数是father的话，选中son祖先结构中所有是father的元素
-			// 没有传入参数的话，选中son的所有父元素（包含祖先）
-			
-			// $("span").parents().css("border", "1px solid red");
-			$("span").parents("p").css("backgroundColor", "lightgray");
+		// 	$(son).parents(father)
+		// 	传入参数是father的话，选中son祖先结构中所有是father的元素
+		// 	没有传入参数的话，选中son的所有父元素（包含祖先）
 
-			// 从直接父元素开始，查找到指定的father，不包含指定的father
-			// $(son).parentsUntil(father)
+		// 	从直接父元素开始，查找到指定的father，不包含指定的father
+		// 	$(son).parentsUntil(father)
 
 		// 查找子元素
-			// 查找father中的所有子元素son
-			// $(father).find(son)
+		// 	查找father中的所有子元素son
+		// 	$(father).find(son)
 
-			// 查找father中的所有的直接子元素son
-			// $(father).children(son)
+		// 	查找father中的所有的直接子元素son
+		// 	$(father).children(son)
 
 		// 查找兄弟元素
-			// 查找紧邻的下一个标签
-			// $().next()
+		// 	查找紧邻的下一个标签
+		// 	$().next()
 
-			// 查找紧邻的上一个标签
-			// $().prev()
+		// 	查找紧邻的上一个标签
+		// 	$().prev()
 
-			// 查找其他的兄弟关系标签  不包含自身  可以指定类型
-			// $().siblings()
+		// 	查找其他的兄弟关系标签  不包含自身  可以指定类型
+		// 	$().siblings()
 
 		$(function(){
 		// 查找父元素
