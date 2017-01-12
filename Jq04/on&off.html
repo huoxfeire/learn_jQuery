@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>开关事件</title>
+	<style type="text/css" media="screen">
+		#box {
+			width: 400px;
+			height: 800px;
+			background-color: lightgray;
+		}
+
+		p {
+			width: 200px;
+			height: 80px;
+			background: pink;
+		}
+	</style>
+
+	<script type="text/javascript" src="jquery.js"></script>
+	<script>
+	// 事件委托
+
+		// 当给多个标签（大数量级）绑定同一事件对象时，用bind一个一个绑定会导致页面变慢或卡顿
+		// 事件委托就是处理这一类问题的
+		// jquery1.7前用的是 
+			// $(selector).live(event, data, function)
+			// $(selector).die(event, function)
+		// 之后的替代方法
+			// $(selector).delegate(childSelector, event, data, function)
+			// $(selector).undelegate(selector, event, function)
+			// 在DOM中很多元素绑定相同事件时，在DOM元素不存在即将生成时，推荐使用事件委托绑定事件。不然推荐用bind绑定事件
+
+		// 在jQuery1.7后推出了on()和off()方法彻底摒弃了前面三组，成为了新的替代品
+		// on()方法在被选元素及子元素上添加一个或多个事件处理函数
+		// 使用on()方法添加的事件处理函数适用于当前及未来的元素
+		// on()和delegate的参数有所区别，用法大致一样
+		// $(selector).on(event, childSelector, data, function)
+
+		// off()和undelegate()的参数也有所区别
+		// $(selector).off(event, childSelector, data, function)
+
+		// on和off的基本用法（事件绑定和解绑）可以参考bind和unbind用法
+			// 可以绑定同一事件的多个处理函数
+			// 可以给多个事件绑定同一个处理函数
+			// 命名空间也能用
+
+		// on和off进行事件绑定
+			// $(father).on(event, childSelector, data, fn);
+			// childSelector:将要出现还未出现的后代元素/多个元素绑定同一事件的每一个元素
+			// data:通过该属性可以传递参数, 类型必须是json对象  非必须参数
+
+			// $(father).off(event, childSelector)
+
+
+		// one()方法
+			// 绑定函数执行后，自动移除事件
+			
+		$().ready(function(){
+			// 因为p是动态创建的，不能进行事件绑定
+			// $(父元素).on(event, childSelector, data, fn);
+			// childSelector:将要出现还未出现的元素/多个元素绑定同一事件的每一个元素
+			// data:通过该属性可以传递参数, 类型必须是json对象  非必须参数
+
+			$('#box').on('click', 'p', {name:'tom', age:17},function (e) {
+				
+				// 如果需要使用data数据 通过事件对象获取 e.data
+				// console.log(e.data);
+				$(this).prop('innerHTML', e.data.name);
+
+			})
+
+		});
+
+		function f1() {
+			$('#box').append('<p></p>');
+		}
+
+		function f2() {
+			// 解除事件委托
+			// $(父元素).off(event, childSelector)
+			$('#box').off('click', 'p');
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+
+	<button onclick="f1()">追加子节点</button>
+	<button onclick="f2()">取消委托</button>
+</body>
+</html>

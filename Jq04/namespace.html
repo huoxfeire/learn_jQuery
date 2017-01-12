@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>命名空间</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+	
+	// 命名空间，给事件类型分类，方便事件的解绑，不用再指定事件函数解绑了
+		// EventType.namespace
+
+		// 根据事件类型及命名空间的内容进行取消绑定事件
+		// $().unbind("EventType.namespace")
+
+		// 如果省略了事件类型, 会将相同的命名空间的事件都取消绑定
+		// $().unbind()
+
+		// 如果省略了命名空间, 会将给定的事件绑定的所有函数解除
+		// $().unbind("eventType")
+
+		// 将命名空间下的所有事件解绑
+		// $().unbind(".namespace")
+
+		$().ready(function(){
+
+			$("#box").bind("click.xxx", function(){
+				console.log("click1");
+			});
+
+			$("#box").bind("click", function(){
+				console.log("click2");
+			});
+
+			$("#box").bind("mouseover.xxx", function(){
+				console.log("mouseover");
+			});
+
+		});
+		function f1(){
+			// 解除选中元素所有的click事件
+			// $("#box").unbind("click");
+
+			// 解除选中元素命名空间为xxx的click事件
+			// $("#box").unbind("click.xxx");
+
+			// 解除命名空间为xxx的所有事件
+			$("#box").unbind(".xxx");
+
+			// 解除选中元素的所有事件
+			// $("box").unbind();
+		}
+
+	</script>
+</head>
+<body>
+	<div id="box" style="width:100px; height:100px; background-color: pink"></div>
+	<button onclick="f1();">解除绑定</button>
+</body>
+</html>
