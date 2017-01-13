@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>show&hide</title>
+	<style type="text/css" media="screen">
+		#box{
+			display: none;
+			width: 200px;
+			height: 100px;
+			background-color: lightgray;
+		}
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// show/hide
+			//$().show(speed, callback)
+			// 参数speed可以是时间(ms)和normal(400)/slow(600)/fast(200)
+			// 参数callback是一个回调函数，当动画执行完执行的函数
+			// 不加参数只修改display属性
+			// 加上参数会改变宽高，改变透明度，overflow会被设置上是控制文本内容的
+			// 回调函数会在显示或隐藏完成前一点被隐藏
+
+		// toggle 开关显示图片
+		// $().toggle(speed, callback)
+		// 用法和hide和show一样
+
+		
+		function f1(){
+			$("#box").show("fast", function(){
+				console.log(this);
+			});
+		}
+
+		function f2(){
+			$("#box").hide("slow", function(){
+				console.log(this);
+			});
+		}
+
+	</script>
+</head>
+<body>
+	<div id="box">
+		北方有佳人。绝世而独立。
+		一顾倾人城。再顾倾人国。
+		宁不知倾城与倾国。佳人难再得。
+	</div>
+	<button onclick="f1();">显示</button>
+	<button onclick="f2();">隐藏</button>
+</body>
+</html>

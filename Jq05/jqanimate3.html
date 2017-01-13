@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义动画</title>
+	<style type="text/css" media="screen">
+		#box1{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+		}
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		function f1(){
+			// $().animate(jsonObj, speed, callback);
+			// 几乎所有属性都可以做动画效果
+			// 复合属性，建议用驼峰标识，有几个版本连字符不能用
+			// 部分属性可以使用toggle开关  (width heigth opacity)  从0->初始值  初始值->0
+			// json对象中属性名也应该用引号闭合
+			$("#box1").animate({
+				"width" : "toggle",
+				"height" : "toggle",
+				"opacity" : "0.5"
+				// "backgroundColor": "rgb(255, 255, 255)"
+			},"normal");
+		}
+		function f2(){
+			$("#box1").animate({
+				"width" : "500px",
+				"height" : "400px"
+				
+				// "backgroundColor": "rgb(255, 255, 255)"
+			},"normal");
+		}
+	</script>
+</head>
+<body>
+	<button onclick="f1()">触发</button>
+	<button onclick="f2()">显示</button>
+	<div id="box1">
+		大风起兮云飞扬
+	</div>
+</body>
+</html>

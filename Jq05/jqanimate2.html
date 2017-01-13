@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css" media="screen">
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: lightblue;
+		}
+		#box1{
+			width: 200px;
+			height: 400px;
+			background-color: lightyellow;
+		}
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// fadeIn/fadeOut/fadeToggle/fadeTo
+
+		// 实际上淡入淡出效果改变的是透明度，如果设置的淡出的话，最后会设置display为none
+		// fadeIn(speed, callback) 淡入
+
+		// fadeOut(speed, callback) 淡出
+
+		// fadeToggle(speed, callback) 开关淡入淡出效果
+
+		// fadeTo(speed, opacity, callback)	改变透明度到opacity
+
+		// slideUp/slideDown/slideToggle
+		// 滑入滑出改变的是height属性
+		// jQuery的基本动画效果都是带speed和callback的显示隐藏开关函数
+
+		function f1(){
+			$("#box").fadeIn("normal");
+		}
+
+		function f2(){
+			$("#box").fadeOut("normal");
+		}
+
+		function f3(){
+			$("#box").fadeToggle("normal");
+		}
+
+		function f4(){
+			$("#box").fadeTo("normal", 0.5);
+		}
+
+		function f5(){
+			$("#box1").slideDown("normal");
+		}
+		function f6(){
+			$("#box1").slideUp("normal");
+		}
+		function f7(){
+			$("#box1").slideToggle("normal");
+		}
+
+	</script>
+
+</head>
+<body>
+	<div id="box"></div>
+	<button onclick="f1();">淡入</button>
+	<button onclick="f2();">淡出</button>
+	<button onclick="f3();">开关淡入淡出</button>
+	<button onclick="f4();">改变到0.5</button>
+	<div id="box1"></div>
+	<button onclick="f5();">滑入</button>
+	<button onclick="f6();">滑出</button>
+	<button onclick="f7();">开关滑入滑出</button>
+
+</body>
+</html>
