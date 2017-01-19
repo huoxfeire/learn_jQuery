@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>工具函数</title>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript">
+    // 1.$.trim() 将字符串两端的空格去除
+
+    // 2.数组相关
+      // $().each(function(index, ele))
+      // $.each(arr, function(index, value))
+
+      // $().map(function(ele, index))  返回新数组，返回值由return决定
+      // $.map(arr, function(index, value))
+
+      // $.grep(arr, function(ele, index)) 过滤数组
+
+      // $.unique()  去重  直接去除原数组中重复的对象(内存地址相同)
+
+      //
+    // $.param()  将json对象拼接成参数字符串格式
+
+    // $(selector).get()  获得由选择器指定dom元素
+    $(function(){
+
+      // $(".box").map(function(val, index){
+      //   console.log(index);
+      // })
+
+      // $.map($(".box"), function(val, index){
+      //   console.log(val);
+      // })
+
+      // var boxGt3 = $(".box").grep(function(val, index){
+      //   return index>3;
+      // })     报错
+
+      // var boxGt3 = $.grep($(".box"), function(val, index){
+      //   return index>2;
+      // })
+
+      // console.log(boxGt3);
+
+      var divs = $("div").get();
+      var boxs = $(".box").get();
+
+      var newDivs = $.merge(divs, boxs);
+      console.log(newDivs.length);  // 15
+
+      $.unique(newDivs);
+      console.log(newDivs.length);  // 10
+
+      console.log(newDivs);
+
+      var  jsonObj = {
+      username:"'admin'",
+      'password':'admin'
+    };
+
+    console.log($.param(jsonObj));
+
+
+    });
+  </script>
+</head>
+<body>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+  <div class="box">4</div>
+  <div class="box">5</div>
+</body>
+</html>

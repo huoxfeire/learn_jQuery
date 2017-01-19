@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟操作</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		// 模拟操作
+		// 1.直接调用事件函数可以触发事件
+		// 2.trigger()	模拟用户点击事件
+		// 模拟操作传参 $().trigger(eventType, [param1. param2]);
+
+
+
+
+		// 3.triggerHandler
+
+
+		$(function(){
+			// $("#btn").on("event", fn)
+			// $("#btn").bind("event", fn)
+			// $("#btn").click(fn)
+
+			// $("#btn1").click(function(){
+			// 	console.log("btn1 clicked");
+			// })
+			// $("#btn1").trigger("click");
+
+			$("#btn1").click(function(e, arg1, arg2){
+				console.log("btn1 clicked" + arg1 + arg2);
+			})
+			// trigger可以事件传参，事件所有参数都放在中括号里
+			$("#btn1").trigger("click", [110, 33]);
+
+			// trigger和triggerHandler区别
+			// 1.trigger不仅触发指定事件，还会触发默认的功能
+				// submit提交按钮默认事件能被触发，a默认事件不能被触发
+			// 2.trigger选择器匹配到的所有元素都会进行模拟操作
+			// 3.trigger会触发事件冒泡，将子元素的事件传递给父元素
+
+			// triggerHandler仅触发匹配到的第一个元素的指定事件，不会冒泡
+
+			// trigger会触发默认时间
+			// $("input").click(function(){
+			// 	console.log("click to baidu");
+			// }).trigger("click");
+
+			// 2.trigger选择器匹配所有进行模拟操作
+			// $("input").click(function(){
+			// 	console.log(this.value);	// 提交 文本
+			// }).trigger("click");
+
+			// $("input").triggerHandler("click");		//提交
+
+			$("input").click(function(){
+				console.log("input click");
+			});
+
+			$("form").click(function(){
+				console.log("form click");
+			});
+
+			// $("input").trigger("click");	//触发事件冒泡
+			$("input").triggerHandler("click");	//不触发事件冒泡
+
+		});
+	</script>
+</head>
+<body>
+
+	<button id="btn1">触发</button>
+
+	<a id="gotobd" href="http://www.baidu.com">百度</a>
+	<form action="#110">
+		<input type="submit" value="提交">
+		<input type="text" value="文本">
+	</form>
+
+
+</body>
+</html>
