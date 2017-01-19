@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jqueryui effects</title>
+  <style type="text/css" media="screen">
+    #box{
+      width: 100px;
+      height: 100px;
+      background-color: lightgrey;
+      position: absolute;
+    }
+    .peach{
+      color: orange;
+      background-color: cyan;
+      font-size: 30px;
+      width: 300px;
+      left: 100px;
+      top: 100px;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="jquery-ui.min.js"></script>
+</head>
+<body>
+
+  <button onclick="f1();">触发</button>
+  <button onclick="f2();">取消</button>
+
+  <div id="box"></div>
+</body>
+<script type="text/javascript">
+  // 在jqueryui中，有些方法得到了优化和扩展
+  // 1.animate(),能改变颜色属性
+
+  // 2.class
+    // addClass/removeClass/toggleClass/hasClass
+    // addClass(className, duration, easings, callback)
+    // easings 贝塞尔曲线名或函数
+    // 看参数就知道，加类的时候会有动画效果
+
+    function f1(){
+      $("#box").addClass("peach", 3000, "easeInOutBounce",function(){
+        console.log(this);
+      });
+    }
+
+    function f2(){
+      $("#box").removeClass("peach", 3000, "easeInOutBounce",function(){
+      console.log(this);
+    });
+    }
+
+
+
+</script>
+</html>

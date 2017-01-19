@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery-ui小部件</title>
+  <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="jquery-ui.min.js"></script>
+</head>
+<body>
+  <div id="accordion">
+    <h2>山鬼</h2>
+    <div>
+      <p>
+      若有人兮山之阿，被薛荔兮带女萝；既含睇兮又宜笑，子慕予兮善窈窕； 乘赤豹兮从文狸，辛夷车兮结桂旗；被石兰兮带杜衡，折芳馨兮遗所思； 余处幽篁兮终不见天，路险难兮独后来；表独立兮山之上， 云容容兮而在下；杳冥冥兮羌昼晦，东风飘兮神灵雨；留灵修兮澹忘归， 岁既晏兮孰华予；采三秀兮于山间，石磊磊兮葛蔓蔓；怨公子兮怅忘归， 君思我兮不得闲；山中人兮芳杜若，饮石泉兮荫松柏；君思我兮然疑作； 雷填填兮雨冥冥，爰啾啾兮穴夜鸣；风飒飒兮木萧萧，思公子兮徒离忧
+      </p>
+    </div>
+    <h2>山鬼</h2>
+    <div>
+      <p>
+      若有人兮山之阿，被薛荔兮带女萝；既含睇兮又宜笑，子慕予兮善窈窕； 乘赤豹兮从文狸，辛夷车兮结桂旗；被石兰兮带杜衡，折芳馨兮遗所思； 余处幽篁兮终不见天，路险难兮独后来；表独立兮山之上， 云容容兮而在下；杳冥冥兮羌昼晦，东风飘兮神灵雨；留灵修兮澹忘归， 岁既晏兮孰华予；采三秀兮于山间，石磊磊兮葛蔓蔓；怨公子兮怅忘归， 君思我兮不得闲；山中人兮芳杜若，饮石泉兮荫松柏；君思我兮然疑作； 雷填填兮雨冥冥，爰啾啾兮穴夜鸣；风飒飒兮木萧萧，思公子兮徒离忧
+      </p>
+    </div>
+    <h2>山鬼</h2>
+    <div>
+      <p>
+      若有人兮山之阿，被薛荔兮带女萝；既含睇兮又宜笑，子慕予兮善窈窕； 乘赤豹兮从文狸，辛夷车兮结桂旗；被石兰兮带杜衡，折芳馨兮遗所思； 余处幽篁兮终不见天，路险难兮独后来；表独立兮山之上， 云容容兮而在下；杳冥冥兮羌昼晦，东风飘兮神灵雨；留灵修兮澹忘归， 岁既晏兮孰华予；采三秀兮于山间，石磊磊兮葛蔓蔓；怨公子兮怅忘归， 君思我兮不得闲；山中人兮芳杜若，饮石泉兮荫松柏；君思我兮然疑作； 雷填填兮雨冥冥，爰啾啾兮穴夜鸣；风飒飒兮木萧萧，思公子兮徒离忧
+      </p>
+    </div>
+  </div>
+
+  <input id="datepicker" type="text">
+
+  <div id="dialog" title="请问您要来点兔子吗">
+    close
+  </div>
+
+  <div id="tabs">
+    <ul>
+      <li><a href="#box1">1</a></li>
+      <li><a href="#box2">2</a></li>
+      <li><a href="#box3">3</a></li>
+    </ul>
+    <div id="box1">1</div>
+    <div id="box2">2</div>
+    <div id="box3">3</div>
+  </div>
+
+  <div id="progressbar"></div>
+</body>
+<script type="text/javascript">
+
+  // jquery-ui小部件：主要是一些页面的扩展，只要复合某种结构，就能为结构加上样式
+
+  // 1.手风琴效果
+  $("#accordion").accordion();
+
+  // 日期选择
+  $('#datepicker').datepicker();
+
+  // 弹框
+  $('#dialog').dialog();
+
+  // 选项切换
+  $("#tabs").tabs();
+
+  // 进度条君
+  $('#progressbar').progressbar({
+    max:100
+  });
+
+  // 进度条设置值
+  $('#progressbar').progressbar('value', 60);
+
+
+</script>
+</html>

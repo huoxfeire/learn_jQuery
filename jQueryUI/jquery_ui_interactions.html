@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>interactions</title>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="jquery-ui.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+  <style type="text/css" media="screen">
+    div{
+      width: 100px;
+      height: 100px;
+
+    }
+    #box1{
+      background-color: blue;
+    }
+
+    #box3{
+      background-color: red;
+    }
+    #bigBox{
+      width: 400px;
+      height: 400px;
+      background-color: grey;
+    }
+
+  </style>
+</head>
+<body>
+  <a id="a2btn" href="https://www.baidu.com">baidu</a>
+
+  <div id="box1"></div>
+
+  <div id="box3"></div>
+
+  <h3>给你3个选择</h3>
+  <ul id="selectable">
+    <li id="l1">沉默中爆发</li>
+    <li>沉默中灭亡</li>
+    <li>不沉默</li>
+  </ul>
+  <p id="btn2">触发</p>
+
+
+  <div id="bigBox"></div>
+
+  <script type="text/javascript">
+  // jQuery-ui包含了许多维持状态的小部件（widget），与典型的jquery插件使用模式略有不同
+  // jquery-ui-interaction(交互) jquery-ui-widgets(小部件) jquery-ui-effects(效果库)
+    // jQuery-ui交互
+    // 交互部件是一些与鼠标交互相关的内容
+    // $().button()
+    // 任何元素都能被当成按钮使用，加了一些类，加了属性role="button"
+    $("#a2btn").button();
+
+    // $().draggable()
+    // 使元素变得可拖拽
+    // 加了一些类，通过设置行内样式position:relative，left，top来修改位置
+    $("#box1").draggable();
+
+    // 检测进入
+    // $().droppable(jsonObj)
+    // 当一个可拖动的盒子拖拽完后（松开鼠标），进行操作
+    $("#bigBox").droppable({
+      drop : function(){
+        console.log("out!out!!out!!!");
+      }
+    });
+
+    // 盒子大小重定义
+    // $().resizable()
+    $("#box3").resizable();
+
+    // 是否可选择
+    // $().selectable()
+    // 选中会添加类ui-selectee ui-selected
+    $("#selectable").selectable();
+
+    $("#btn2").button();
+
+    $("#btn2").on("click", function(){
+      if($("#l1").hasClass("ui-selected")){
+        console.log($("#l1").html());
+      }
+    });
+
+  </script>
+</body>
+
+</html>
