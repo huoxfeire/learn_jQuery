@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.menu.js"></script>
+	<style type="text/css">
+
+		ul {
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+			color: #f1f1f1;
+		}
+
+		.list{
+			width: 505px;
+			margin: 5px auto;
+		}
+
+		.list>li {
+			float: left;
+			width: 100px;
+			background: #666;
+			text-align: center;
+			/*height: 30px;*/
+			line-height: 30px;
+			cursor: pointer;
+			margin-left: 1px;
+
+		}
+
+
+	</style>
+
+	<script type="text/javascript">
+		$(function () {
+
+			// 添加方法: 第一种添加原型方法  第二种添加全局的方法
+			// jquery: extend()
+			// $.nav();
+
+			$('.list').nav();
+
+		});
+
+
+	</script>
+
+</head>
+<body>
+
+	<ul class="list">
+		<li>导航列表
+			<ul class="nav">
+				<li>子菜单1</li>
+				<li>子菜单1</li>
+				<li>子菜单1</li>
+			</ul>
+		</li>
+
+		<li>导航列表
+			<ul class="nav">
+				<li>子菜单2</li>
+				<li>子菜单2</li>
+				<li>子菜单2</li>
+			</ul>
+		</li>
+
+		<li>导航列表
+			<ul class="nav">
+				<li>子菜单3</li>
+				<li>子菜单3</li>
+				<li>子菜单3</li>
+			</ul>
+		</li>
+
+		<li>导航列表
+			<ul class="nav">
+				<li>子菜单4</li>
+				<li>子菜单4</li>
+				<li>子菜单4</li>
+			</ul>
+		</li>
+
+		<li>导航列表
+			<ul class="nav">
+				<li>子菜单5</li>
+				<li>子菜单5</li>
+				<li>子菜单5</li>
+			</ul>
+		</li>
+	</ul>
+
+
+</body>
+</html>
